@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #173b35;
+  background: #071f1b;
+}
+button,
+input {
+  font: inherit;
+}
+
+.landing {
+  min-height: 100svh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+  overflow: hidden;
+}
+.background-image {
+  position: fixed;
+  inset: -30px;
+  background: url("/images/background.webp") center / cover no-repeat;
+  filter: blur(16px);
+  transform: scale(1.08);
+}
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 28, 24, 0.9),
+    rgba(7, 42, 35, 0.78)
+  );
+}
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 12px;
+  padding: 36px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  border: 2px solid #006f34;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #7a6a3a;
+  margin-bottom: 8px;
+}
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 6vw, 42px);
+  line-height: 1.05;
+  color: #006f34;
+}
+.intro {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+.description {
+  color: #536762;
+  line-height: 1.55;
+  margin: 0 0 24px;
+}
+.lead-form {
+  display: grid;
+  gap: 15px;
+}
+.lead-form label:not(.consent) {
+  display: grid;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.lead-form input:not([type="checkbox"]) {
+  width: 100%;
+  border: 1px solid #d8e0dd;
+  border-radius: 11px;
+  padding: 13px 14px;
+  outline: none;
+  background: #fff;
+}
+.lead-form input:not([type="checkbox"]):focus {
+  border-color: #6e8061;
+  box-shadow: 0 0 0 3px rgba(110, 128, 97, 0.12);
+}
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #5d6966;
+}
+.consent input {
+  margin-top: 2px;
+  accent-color: #1e5146;
+}
+.lead-form button {
+  border: 0;
+  border-radius: 11px;
+  padding: 14px 18px;
+  background: #006f34;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+.lead-form button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.form-error {
+  margin: 0;
+  color: #a22626;
+  font-size: 13px;
+}
+.disclaimer,
+.operator {
+  margin: 0;
+  color: #687571;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.operator {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #e6ece9;
+}
+.thank-you-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background + blur + verde */
+.thank-you-page::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+
+  background-image:
+    linear-gradient(135deg, rgba(0, 111, 52, 0.72), rgba(0, 65, 32, 0.78)),
+    url("/images/background.webp");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(8px);
+
+  transform: scale(1.05);
+
+  z-index: -2;
+}
+
+/* Camada adicional para escurecer levemente */
+.thank-you-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.1);
+
+  z-index: -1;
+}
+
+/* Cartão continua nítido */
+.thank-you-card {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 520px;
+
+  padding: 42px 36px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1f8f5f;
+  color: white;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+
+  color: #777;
+}
+
+.thank-you-card h1 {
+  margin: 0 0 14px;
+
+  font-size: 30px;
+  line-height: 1.2;
+
+  color: #006f34;
+}
+
+.thank-you-card p {
+  margin: 8px 0;
+
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  margin-top: 26px;
+  padding: 15px 20px;
+
+  border-radius: 12px;
+
+  background: #006f34;
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+.countdown {
+  margin-top: 22px;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+.countdown strong {
+  color: #222;
+}
+
+@media (max-width: 600px) {
+  .thank-you-page {
+    padding: 16px;
+    background-attachment: scroll;
+  }
+
+  .thank-you-card {
+    padding: 34px 24px;
+    border-radius: 20px;
+  }
+
+  .thank-you-card h1 {
+    font-size: 25px;
+  }
+}
+.thank-you-card p {
+  color: #5b6964;
+  line-height: 1.5;
+}
+.whatsapp-button {
+  display: inline-block;
+  margin: 18px 0;
+  padding: 14px 22px;
+  border-radius: 11px;
+  background: #1e5146;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+}
+.countdown {
+  margin-top: 8px;
+  color: #687571;
+  font-size: 14px;
+}
+
+@media (max-width: 560px) {
+  .landing {
+    padding: 16px;
+  }
+  .card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+}
