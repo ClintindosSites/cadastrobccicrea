@@ -19,12 +19,12 @@ export default function Home() {
 
         <LeadForm />
 
-        <p className="operator">
+        {/* <p className="operator">
           Responsável pelo atendimento:{" "}
           <strong>[NOME DO CONSULTOR / EMPRESA]</strong>
           <br />
           [E-MAIL] · [TELEFONE]
-        </p>
+        </p>*/}
       </section>
     </main>
   );
