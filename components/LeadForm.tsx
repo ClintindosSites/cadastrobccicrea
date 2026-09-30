@@ -303,7 +303,6 @@ export default function LeadForm() {
       </label>
 
       {/* CONSENTIMENTO */}
-
       <label className="consent">
         <input
           type="checkbox"
@@ -312,8 +311,20 @@ export default function LeadForm() {
         />
 
         <span>
-          Li e aceito a política de privacidade e autorizo o contacto
-          relativamente ao pedido efetuado, incluindo através do WhatsApp.
+          Aceito os{" "}
+          <a href="/termos-de-uso" target="_blank" rel="noopener noreferrer">
+            Termos de Uso
+          </a>{" "}
+          e a{" "}
+          <a
+            href="/politica-de-privacidade"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Política de Privacidade
+          </a>{" "}
+          e autorizo o contacto relativamente ao pedido efetuado, incluindo
+          através de telefone, e-mail e WhatsApp.
         </span>
       </label>
 
@@ -338,6 +349,25 @@ export default function LeadForm() {
         crédito. Qualquer operação está sujeita a análise, elegibilidade e às
         condições aplicáveis.
       </p>
+      <div className="consent-info">
+        <span>Consentimento e privacidade</span>
+
+        <div>
+          <a href="/termos-de-uso" target="_blank" rel="noopener noreferrer">
+            Ler Termos de Uso
+          </a>
+
+          <span aria-hidden="true">·</span>
+
+          <a
+            href="/politica-de-privacidade"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ler Política de Privacidade
+          </a>
+        </div>
+      </div>
     </form>
   );
 }

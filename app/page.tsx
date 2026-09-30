@@ -1,4 +1,5 @@
 import LeadForm from "../components/LeadForm";
+import LegalFooter from "../components/LegalFooter";
 
 export default function Home() {
   return (
