@@ -20,32 +20,32 @@ function getTracking() {
   };
 }
 
-/*
-|--------------------------------------------------------------------------
-| Máscara de telefone italiano
-|--------------------------------------------------------------------------
-*/
+/**
+ * --------------------------------------------------------------------------
+ * Máscara de telefone português
+ * --------------------------------------------------------------------------
+ */
 
-function formatItalianPhone(value: string) {
+function formatPortuguesePhone(value: string) {
   let numbers = value.replace(/\D/g, "");
 
-  // Remove o código 39 se o usuário colar +39
-  if (numbers.startsWith("39")) {
-    numbers = numbers.slice(2);
+  // Remove o código 351 se o utilizador colar +351
+  if (numbers.startsWith("351")) {
+    numbers = numbers.slice(3);
   }
 
-  // Máximo de 10 dígitos
-  numbers = numbers.slice(0, 10);
+  // Máximo de 9 dígitos
+  numbers = numbers.slice(0, 9);
 
-  // Celulares italianos começam com 3
-  if (numbers.length > 0 && numbers[0] !== "3") {
+  // Telemóveis portugueses começam com 9
+  if (numbers.length > 0 && numbers[0] !== "9") {
     return "";
   }
 
-  // +39 320 123 4567
+  // +351 912 345 678
   if (numbers.length > 6) {
     return (
-      "+39 " +
+      "+351 " +
       numbers.slice(0, 3) +
       " " +
       numbers.slice(3, 6) +
@@ -54,14 +54,14 @@ function formatItalianPhone(value: string) {
     );
   }
 
-  // +39 320 123
+  // +351 912 345
   if (numbers.length > 3) {
-    return "+39 " + numbers.slice(0, 3) + " " + numbers.slice(3);
+    return "+351 " + numbers.slice(0, 3) + " " + numbers.slice(3);
   }
 
-  // +39 320
+  // +351 912
   if (numbers.length > 0) {
-    return "+39 " + numbers;
+    return "+351 " + numbers;
   }
 
   return "";
@@ -115,8 +115,7 @@ export default function LeadForm() {
   */
 
   function handlePhoneChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const formatted = formatItalianPhone(event.target.value);
-
+    const formatted = formatPortuguesePhone(event.target.value);
     setPhone(formatted);
   }
 
@@ -151,9 +150,8 @@ export default function LeadForm() {
 
     const normalizedPhone = normalizePhone(phone);
 
-    if (!/^393\d{9}$/.test(normalizedPhone)) {
-      setError("Insira um número de telemóvel italiano válido.");
-
+    if (!/^3519\d{8}$/.test(normalizedPhone)) {
+      setError("Insira um número de telemóvel português válido.");
       return;
     }
 
@@ -281,8 +279,8 @@ export default function LeadForm() {
           autoComplete="tel"
           value={phone}
           onChange={handlePhoneChange}
-          placeholder="+39 3XX XXX XXXX"
-          maxLength={17}
+          placeholder="+351 9XX XXX XXX"
+          maxLength={16}
           required
         />
       </label>

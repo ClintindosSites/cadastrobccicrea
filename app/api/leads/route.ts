@@ -10,7 +10,7 @@ import { z } from "zod";
 |--------------------------------------------------------------------------
 */
 
-const italianMobileRegex = /^\+39\s?3\d{2}\s?\d{3}\s?\d{4}$/;
+const portugueseMobileRegex = /^\+351\s?9\d{2}\s?\d{3}\s?\d{3}$/;
 
 const schema = z.object({
   name: z.string().trim().min(2).max(100),
@@ -19,8 +19,8 @@ const schema = z.object({
     .string()
     .trim()
     .regex(
-      italianMobileRegex,
-      "Insira um número de telemóvel italiano válido."
+      portugueseMobileRegex,
+      "Insira um número de telemóvel português válido."
     ),
 
   email: z.string().trim().email().max(150),
@@ -108,12 +108,11 @@ export async function POST(request: NextRequest) {
     |--------------------------------------------------------------------------
     */
 
-    if (!/^393\d{9}$/.test(normalizedPhone)) {
+    if (!/^3519\d{8}$/.test(normalizedPhone)) {
       return NextResponse.json(
         {
           ok: false,
-
-          error: "Insira um número de telemóvel italiano válido.",
+          error: "Insira um número de telemóvel português válido.",
         },
         {
           status: 400,
